@@ -1,0 +1,11 @@
+export { default as p4kCloseup } from "./kendrick.png";
+export { default as cocktails } from "./cocktails.png";
+export { default as reviews } from "./reviews.png";
+export { default as vacation } from "./vacation.png";
+export { default as travel } from "./travel-quiz.png";
+export { default as chineseRecipes } from "./chinese-recipes.png";
+export { default as pplsList } from "./ppls-list.png";
+export { default as pplsListMap } from "./ppls-list-map.png";
+export { default as streetStyle } from "./street-style.png";
+export { default as pulse } from "./pulse.png";
+export { default as quotes } from "./quote-draft.png";

@@ -1,0 +1,228 @@
+@font-face {
+  font-family: "FreightDisp Pro";
+  src: local("FreightDisp Pro Light Regular"),
+    local("FreightDisp-Pro-Light-Regular"),
+    url("FreightDispProLight-Regular.woff2") format("woff2"),
+    url("FreightDispProLight-Regular.woff") format("woff"),
+    url("FreightDispProLight-Regular.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Opposit";
+  src: url("Opposit-Medium.eot");
+  src: local("Opposit Medium"), local("Opposit-Medium"),
+    url("Opposit-Medium.eot?#iefix") format("embedded-opentype"),
+    url("Opposit-Medium.woff2") format("woff2"),
+    url("Opposit-Medium.woff") format("woff"),
+    url("Opposit-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Opposit";
+  src: url("Opposit-Light.eot");
+  src: local("Opposit Light"), local("Opposit-Light"),
+    url("Opposit-Light.eot?#iefix") format("embedded-opentype"),
+    url("Opposit-Light.woff2") format("woff2"),
+    url("Opposit-Light.woff") format("woff"),
+    url("Opposit-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Opposit";
+  src: url("Opposit-Regular.eot");
+  src: local("Opposit Regular"), local("Opposit-Regular"),
+    url("Opposit-Regular.eot?#iefix") format("embedded-opentype"),
+    url("Opposit-Regular.woff2") format("woff2"),
+    url("Opposit-Regular.woff") format("woff"),
+    url("Opposit-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Opposit";
+  src: url("Opposit-ExtraBold.eot");
+  src: local("Opposit ExtraBold"), local("Opposit-ExtraBold"),
+    url("Opposit-ExtraBold.eot?#iefix") format("embedded-opentype"),
+    url("Opposit-ExtraBold.woff2") format("woff2"),
+    url("Opposit-ExtraBold.woff") format("woff"),
+    url("Opposit-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Opposit";
+  src: url("Opposit-Heavy.eot");
+  src: local("Opposit Heavy"), local("Opposit-Heavy"),
+    url("Opposit-Heavy.eot?#iefix") format("embedded-opentype"),
+    url("Opposit-Heavy.woff2") format("woff2"),
+    url("Opposit-Heavy.woff") format("woff"),
+    url("Opposit-Heavy.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Opposit";
+  src: url("Opposit-Black.eot");
+  src: local("Opposit Black"), local("Opposit-Black"),
+    url("Opposit-Black.eot?#iefix") format("embedded-opentype"),
+    url("Opposit-Black.woff2") format("woff2"),
+    url("Opposit-Black.woff") format("woff"),
+    url("Opposit-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Opposit";
+  src: url("Opposit-Bold.eot");
+  src: local("Opposit Bold"), local("Opposit-Bold"),
+    url("Opposit-Bold.eot?#iefix") format("embedded-opentype"),
+    url("Opposit-Bold.woff2") format("woff2"),
+    url("Opposit-Bold.woff") format("woff"),
+    url("Opposit-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Opposit";
+  src: url("Opposit-SemiBold.eot");
+  src: local("Opposit SemiBold"), local("Opposit-SemiBold"),
+    url("Opposit-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("Opposit-SemiBold.woff2") format("woff2"),
+    url("Opposit-SemiBold.woff") format("woff"),
+    url("Opposit-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gatwick";
+  src: url("Gatwick-Bold.otf");
+  src: local("Gatwick Bold"), local("Gatwick-Bold"),
+    url("Gatwick-Bold.otf?#iefix") format("opentype"),
+    url("Gatwick-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gatwick";
+  src: url("Gatwick-Ultralight.otf");
+  src: local("Gatwick Ultralight"), local("Gatwick-Ultralight"),
+    url("Gatwick-Ultralight.otf") format("opentype"),
+    url("Gatwick-Bold.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Monument";
+  src: url("MonumentExtended-Black.woff");
+  src: local("MonumentExtended Black"), local("MonumentExtended-Black"),
+    url("MonumentExtended-Black.woff2") format("woff2"),
+    url("MonumentExtended-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Monument";
+  src: url("MonumentExtended-Regular.woff");
+  src: local("MonumentExtended Regular"), local("MonumentExtended-Regular"),
+    url("MonumentExtended-Regular.woff2") format("woff2"),
+    url("MonumentExtended-Regular.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Monument";
+  src: url("MonumentExtended-Light.woff");
+  src: local("MonumentExtended Light"), local("MonumentExtended-Light"),
+    url("MonumentExtended-Light.woff2") format("woff2"),
+    url("MonumentExtended-Light.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GTF Adieu";
+  src: url("GTFAdieuTRIAL-Light.woff2") format("woff2"),
+    url("GTFAdieuTRIAL-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GTF Adieu";
+  src: url("GTFAdieuTRIAL-BlackSlanted.woff2") format("woff2"),
+    url("GTFAdieuTRIAL-BlackSlanted.woff") format("woff");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GTF Adieu";
+  src: url("GTFAdieuTRIAL-Regular.woff2") format("woff2"),
+    url("GTFAdieuTRIAL-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GTF Adieu";
+  src: url("GTFAdieuTRIAL-Bold.woff2") format("woff2"),
+    url("GTFAdieuTRIAL-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GTF Adieu";
+  src: url("GTFAdieuTRIAL-LightSlanted.woff2") format("woff2"),
+    url("GTFAdieuTRIAL-LightSlanted.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GTF Adieu";
+  src: url("GTFAdieuTRIAL-RegularSlanted.woff2") format("woff2"),
+    url("GTFAdieuTRIAL-RegularSlanted.woff") format("woff");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GTF Adieu";
+  src: url("GTFAdieuTRIAL-Black.woff2") format("woff2"),
+    url("GTFAdieuTRIAL-Black.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "GTF Adieu";
+  src: url("GTFAdieuTRIAL-BoldSlanted.woff2") format("woff2"),
+    url("GTFAdieuTRIAL-BoldSlanted.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}

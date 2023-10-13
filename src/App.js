@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Home from "./sections/Home";
+import About from "./sections/About";
+import Work from "./sections/Work";
+import "./assets/font/stylesheet.css";
+import HeaderMenu from "./components/Header/HeaderMenu";
+import withStyles from "react-jss";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Quotes from "./sections/projects/Quotes";
 
-function App() {
+const styles = {
+  app: { height: "100%", backgroundColor: "#262626" },
+  header: {
+    width: "100%",
+    position: "fixed",
+    top: 0,
+    zIndex: 100,
+    mixBlendMode: "difference",
+  },
+};
+
+const App = ({ classes }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className={classes.app}>
+        <div className={classes.header}>
+          <HeaderMenu />
+        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/quotes" element={<Quotes />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
-export default App;
+export default withStyles(styles)(App);
