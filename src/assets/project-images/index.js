@@ -9,3 +9,4 @@ export { default as pplsListMap } from "./ppls-list-map.png";
 export { default as streetStyle } from "./street-style.png";
 export { default as pulse } from "./pulse.png";
 export { default as quotes } from "./quote-draft.png";
+export { default as browser1 } from "./project-image1.svg";

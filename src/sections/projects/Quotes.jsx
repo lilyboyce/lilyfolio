@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import withStyles from "react-jss";
-import dice from "../../assets/dice.svg";
+import Dice from "./Dice.js";
+import { bgGradient } from "../../assets/index.js";
+import quotes from "./quotesData";
+import gsap from "gsap";
+// import * as Scrollytelling from "@bsmnt/scrollytelling";
 
 const styles = {
   container: {
@@ -26,92 +30,114 @@ const styles = {
     fontWeight: "bold",
     letterSpacing: 2,
   },
-  button: {
-    position: "absolute",
-    bottom: "20%",
-    border: "none",
-    background: "transparent",
-    cursor: "pointer",
+  title: {
+    fontSize: "12px",
+    margin: 0,
+  },
+  diceContainer: {
+    marginTop: "50px",
+  },
+  text: {
+    opacity: 100,
   },
 };
 
 const Quotes = ({ classes }) => {
-  const quotes = [
-    {
-      quote:
-        "Stop interrupting what people are interested in, and instead BE what people are interested in.",
-      speaker: "Graham McDonnell",
-      title: "How to Make Terrible Branded Content",
-    },
-    {
-      quote:
-        "The design process is chaotic by nature. You can let chaos fuel your creativity.",
-      speaker: "Lu Yu",
-      title: "Embrace the Chaos",
-    },
-    {
-      quote:
-        "Everything is a remix, but if you want to remix, make a bloody effort!",
-      speaker: "Freddie / Erik of SNASK",
-      title: "Breaking Walls of Conservatism",
-    },
-
-    {
-      quote:
-        "If you rely on trends in your designs, you won't make anything that lasts.",
-      speaker: "Pelle Martin",
-      title: "The Eye of the Beholder",
-    },
-    {
-      quote: "The future is change rippling through a system.",
-      speaker: "Alicia Shao",
-      title: "Designing For the Unknown",
-    },
-    {
-      quote: "Creativity = (Knowledge * (Taste + Skills))",
-      speaker: "Niccolo Miranda",
-      title: "The Cursor of AI",
-    },
-    {
-      quote: "Look at what everyone is doing, and do the opposite.",
-      speaker: "Lu Yu",
-      title: "Embrace the Chaos",
-    },
-    {
-      quote:
-        "The essence of strategy is imagination, and transforms design into a storytelling tool.",
-      speaker: "Aneta Junkova / Michelle Lee",
-      title: "From Fantasy to Relevance",
-    },
-
-    {
-      quote: "The problem comes when change happens and you don't.",
-      speaker: "Freddie / Erik of SNASK",
-      title: "Breaking Walls of Conservatism",
-    },
+  const colors = [
+    { bg: "#5200FF", fg: "#65FFC8" },
+    { bg: "#B4DFFF", fg: "#C900CD" },
+    { bg: "#000000", fg: "#FFE3B9" },
+    { bg: "#FFE3B9", fg: "#5200FF" },
   ];
 
   // display a new quote on click, cycle through based on array length
-
+  // to do: randomize, but no repeats until whole array has been shown
   const len = quotes.length;
   const [displayQuote, setDisplayQuote] = useState(0);
+  const [colorPair, setColorPair] = useState(0);
   const getQuote = () => {
     if (displayQuote < len - 1) {
       setDisplayQuote((a) => a + 1);
     } else if (displayQuote >= len - 1) {
       setDisplayQuote(0);
     }
+
+    setColorPair(gsap.utils.random(0, colors.length - 1, 1));
   };
 
-  //to do: adjust DICE SVG file and incorporate gsap for a hover animation
+  const el = useRef();
+  const textRef = useRef();
+  const q = gsap.utils.selector(el);
+
+  // to do: move dice on hover
+  const HoverMotion = () => {
+    console.log("we're doing something");
+  };
+
+  //dynamic gradient bg??
+
+  useEffect(() => {
+    //todo: trigger this on hover
+    gsap.to(q(".die"), {
+      y: (index) => {
+        return gsap.utils.random((index + 4) * -7, (index + 4) * 7);
+      },
+      x: (index) => {
+        return gsap.utils.random((index + 3) * -7, (index + 4) * 7);
+      },
+      rotate: (index) => {
+        return gsap.utils.random((index + 5) * -20, (index + 5) * 12);
+      },
+    });
+  }, [q]);
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      // all your animations go in here
+      gsap.to("#text", {
+        color: () => {
+          return colors[colorPair].fg;
+        },
+      });
+      gsap.to("#container", {
+        background: () => {
+          return colors[colorPair].bg;
+        },
+      });
+      gsap.to("#diceRect", {
+        fill: () => {
+          return colors[colorPair].fg;
+        },
+        stroke: () => {
+          return colors[colorPair].bg;
+        },
+      });
+      gsap.to(".diceCirc", {
+        fill: () => {
+          return colors[colorPair].bg;
+        },
+      });
+    }, el);
+
+    return () => ctx.revert();
+  }, [q]);
+
   return (
-    <div className={classes.container}>
-      <p className={classes.quote}>"{quotes[displayQuote].quote}"</p>
-      <p className={classes.speaker}>{quotes[displayQuote].speaker}</p>
-      <p className={classes.title}>{quotes[displayQuote].text}</p>
-      <button className={classes.button} onClick={getQuote}>
-        <img src={dice} />
-      </button>
+    <div ref={el}>
+      <div className={classes.container} id="container">
+        <p className={`${classes.quote} ${classes.text}`} id="text">
+          "{quotes[displayQuote].quote}"
+        </p>
+        <p className={`${classes.speaker} ${classes.text}`} id="text">
+          {quotes[displayQuote].speaker}
+        </p>
+        <p className={`${classes.title} ${classes.text}`} id="text">
+          {quotes[displayQuote].title}
+        </p>
+        <div onMouseEnter={HoverMotion} className={classes.diceContainer}>
+          <Dice getQuote={getQuote} />
+        </div>
+      </div>
     </div>
   );
 };

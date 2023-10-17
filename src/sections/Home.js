@@ -7,7 +7,7 @@ import HeaderLogo from "../components/Header/HeaderLogo";
 import colors from "../styles/colors";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import { Link } from "react-router-dom";
+import WorkImages from "../components/WorkImages";
 
 const styles = {
   container: {
@@ -23,10 +23,10 @@ const styles = {
   },
   textBox: {
     position: "relative",
-    margin: "180px 30% 130px 10%",
-    fontFamily: "GTF Adieu",
-    fontSize: "36px",
-
+    margin: "380px 10% 130px 10%",
+    fontFamily: "sans-serif",
+    fontSize: "24px",
+    textWrap: "balance",
     "@media only screen and (max-width: 800px)": {
       fontSize: "24px",
     },
@@ -37,7 +37,9 @@ const styles = {
   },
   text: {
     color: colors.offwhite,
-    lineHeight: 1.2,
+    lineHeight: 1.5,
+    // opacity: 0.5,
+    textAlign: "center",
   },
   logos: {
     maxWidth: "250px",
@@ -48,10 +50,10 @@ const styles = {
   },
   logoIcon: {
     width: "40px",
-    fill: "red",
+    color: "red",
     height: "40px",
     "&:hover": {
-      fill: "#FF6B6B",
+      color: "#FF6B6B",
     },
   },
 };
@@ -61,26 +63,9 @@ const Home = ({ classes }) => {
   const el = useRef();
   const q = gsap.utils.selector(el);
 
+  //to do - create timeline for full page
   useEffect(() => {
-    gsap.to(q(".image"), {
-      y: (index, element) => {
-        var box = element.getBBox();
-        return 100 - box.y - box.height;
-      },
-      x: -10,
-      scale: 1.2,
-      yoyo: true,
-      scrollTrigger: {
-        // markers: true,
-        trigger: ".container",
-        start: "50px",
-        end: "+=650",
-        scrub: true,
-      },
-    });
-  }, [q]);
-
-  useEffect(() => {
+    // header letters
     gsap.to(q(".letter"), {
       y: (index, element) => {
         var box = element.getBBox();
@@ -113,10 +98,17 @@ const Home = ({ classes }) => {
       scale: 0.5,
       yoyo: true,
       scrollTrigger: {
-        // markers: true,
+        markers: false,
         trigger: ".container",
         start: "50px",
-        end: "+=250",
+        end: "+=450",
+        scrub: true,
+      },
+    });
+    gsap.to(q(".projectBrowser"), {
+      rotate: 15,
+      scrollTrigger: {
+        trigger: ".projectBrowser",
         scrub: true,
       },
     });
@@ -134,7 +126,7 @@ const Home = ({ classes }) => {
           experiences.
         </div>
       </div>
-      <WorkSection />
+      <WorkImages />
       <div className={classes.textBox}>
         <div className={classes.text}>
           I also quite enjoy illustrating letters and words.

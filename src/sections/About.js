@@ -32,10 +32,11 @@ const styles = {
   },
   textBox2: {
     composes: "$textBox",
+    fontFamily: "FreightDisp Pro",
+    fontWeight: 300,
     padding: "5% 40% 150px 10%",
-    fontSize: "18px",
-    lineHeight: 1.2,
-    fontWeight: 600,
+    fontSize: "24px",
+    lineHeight: 1.5,
   },
   logos: {
     maxWidth: "250px",
@@ -65,14 +66,31 @@ const AboutPage = ({ classes }) => {
           className={classes.headshot}
         />
         <div className={classes.textBox}>
-          Hi! I'm a designer, a front-end developer, and a lettering artist
-          based in Brooklyn, NY.
+          I’m a designer, developer, and artist based in Brooklyn, New York.
         </div>
 
         <div className={classes.textBox2}>
-          I've always been drawn to the space where art and science collide. I
-          bring them together using data visualization design, front end
-          development, and UI/UX design.{" "}
+          <p>
+            Lily is a Senior Interactive Designer & Developer on Condé Nast’s
+            Data Story Lab, a cross-brand team that creates interactive digital
+            experiences for the publisher’s many magazines, including Vogue,
+            Pitchfork, Condé Nast Traveler, Architectural Digest, and
+            Epicurious. She lives in Brooklyn, New York.
+          </p>{" "}
+          <p>
+            Lily has always been drawn to the space where art and science
+            collide – as a kid she couldn’t decide whether to be an astronaut or
+            an artist. Like many people in the field, she fell into data
+            visualization sideways after dabbling in fine art, geography,
+            research writing, and graphic design.
+          </p>
+          <p>
+            {" "}
+            In any given week Lily is probably playing tennis, illustrating
+            letters, dreaming up big travel plans, naming her future cat, or
+            taking an excessive amount of photos to stash in folders rarely to
+            be seen again.
+          </p>
         </div>
         <div className={classes.logos}>
           <a

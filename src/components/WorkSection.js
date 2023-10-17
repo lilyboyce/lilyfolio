@@ -15,12 +15,14 @@ const styles = {
     justifyContent: "center",
   },
   imgContainer: {
-    // css mask boundary for image?
+    width: "100%",
+    height: "400px",
+    overflow: "hidden",
   },
   image: {
     width: "100%",
-    height: "300px",
-    objectFit: "contain",
+    height: "400px",
+    objectFit: "cover",
     transition: "scale 0.5s",
     "&:hover": {
       scale: 1.3,

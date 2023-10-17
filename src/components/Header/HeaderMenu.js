@@ -19,10 +19,10 @@ const styles = {
     background: "#262626",
   },
   circle: {
-    height: "200px",
-    width: "200px",
+    height: "50px",
+    width: "50px",
     position: "absolute",
-    top: 10,
+    top: 75,
     left: -10,
     borderRadius: "50%",
     background: "#F4EDDD",
