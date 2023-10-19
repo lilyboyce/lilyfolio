@@ -61,12 +61,11 @@ const Quotes = ({ classes }) => {
     } else if (displayQuote >= len - 1) {
       setDisplayQuote(0);
     }
-
+    // pick a random color pair on click
     setColorPair(gsap.utils.random(0, colors.length - 1, 1));
   };
 
   const el = useRef();
-  const textRef = useRef();
   const q = gsap.utils.selector(el);
 
   // to do: move dice on hover
@@ -75,6 +74,18 @@ const Quotes = ({ classes }) => {
   };
 
   //dynamic gradient bg??
+  function generateRandomGradient() {
+    // Generate a random RGB color
+    function randomColor() {
+      const r = Math.floor(Math.random() * 256);
+      const g = Math.floor(Math.random() * 256);
+      const b = Math.floor(Math.random() * 256);
+      return `rgb(${r},${g},${b})`;
+    }
+
+    // Create a gradient using two random colors
+    return `linear-gradient(45deg, ${randomColor()}, ${randomColor()})`;
+  }
 
   useEffect(() => {
     //todo: trigger this on hover
@@ -91,6 +102,7 @@ const Quotes = ({ classes }) => {
     });
   }, [q]);
 
+  //color changes
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
       // all your animations go in here
@@ -98,24 +110,36 @@ const Quotes = ({ classes }) => {
         color: () => {
           return colors[colorPair].fg;
         },
+        duration: 2,
       });
-      gsap.to("#container", {
-        background: () => {
-          return colors[colorPair].bg;
-        },
-      });
-      gsap.to("#diceRect", {
-        fill: () => {
-          return colors[colorPair].fg;
-        },
-        stroke: () => {
-          return colors[colorPair].bg;
-        },
-      });
+      gsap.fromTo(
+        "#container",
+        { background: colors[colorPair].bg },
+        {
+          background: () => {
+            return colors[colorPair].bg;
+          },
+          duration: 2,
+        }
+      );
+      gsap.fromTo(
+        "#diceRect",
+        { fill: colors[colorPair].fg, stroke: colors[colorPair].bg },
+        {
+          fill: () => {
+            return colors[colorPair].fg;
+          },
+          stroke: () => {
+            return colors[colorPair].bg;
+          },
+          duration: 2,
+        }
+      );
       gsap.to(".diceCirc", {
         fill: () => {
           return colors[colorPair].bg;
         },
+        duration: 2,
       });
     }, el);
 
