@@ -48,6 +48,8 @@ const Quotes = ({ classes }) => {
     { bg: "#B4DFFF", fg: "#C900CD" },
     { bg: "#000000", fg: "#FFE3B9" },
     { bg: "#FFE3B9", fg: "#5200FF" },
+    { bg: "#FFB038", fg: "#A200A6" },
+    { bg: "#A7CCAD", fg: "#5200FF" },
   ];
 
   // display a new quote on click, cycle through based on array length
@@ -55,15 +57,18 @@ const Quotes = ({ classes }) => {
   const len = quotes.length;
   const [displayQuote, setDisplayQuote] = useState(0);
   const [colorPair, setColorPair] = useState(0);
+  const [randomRoll, setRandomRoll] = useState(2);
   const getQuote = () => {
     if (displayQuote < len - 1) {
       setDisplayQuote((a) => a + 1);
     } else if (displayQuote >= len - 1) {
       setDisplayQuote(0);
     }
-
+    setRandomRoll(gsap.utils.random(0, 5, 1));
     setColorPair(gsap.utils.random(0, colors.length - 1, 1));
   };
+
+  console.log(randomRoll);
 
   const el = useRef();
   const textRef = useRef();
@@ -88,6 +93,7 @@ const Quotes = ({ classes }) => {
       rotate: (index) => {
         return gsap.utils.random((index + 5) * -20, (index + 5) * 12);
       },
+      ease: "inout",
     });
   }, [q]);
 
@@ -103,6 +109,7 @@ const Quotes = ({ classes }) => {
         background: () => {
           return colors[colorPair].bg;
         },
+        duration: 2,
       });
       gsap.to("#diceRect", {
         fill: () => {
@@ -135,7 +142,7 @@ const Quotes = ({ classes }) => {
           {quotes[displayQuote].title}
         </p>
         <div onMouseEnter={HoverMotion} className={classes.diceContainer}>
-          <Dice getQuote={getQuote} />
+          <Dice getQuote={getQuote} randomRoll={randomRoll} />
         </div>
       </div>
     </div>
