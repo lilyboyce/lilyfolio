@@ -1,4 +1,11 @@
 import React from "react";
+import withStyles from "react-jss";
+
+const styles = {
+  diceRect: {
+    cursor: "pointer",
+  },
+};
 
 const Dice = ({ getQuote, randomRoll }) => {
   const randomDie = randomRoll;
@@ -113,7 +120,12 @@ const Dice = ({ getQuote, randomRoll }) => {
       xmlns="http://www.w3.org/2000/svg"
       overflow="visible"
     >
-      <g className="die" onClick={getQuote}>
+      <g
+        className="die"
+        onClick={getQuote}
+        style={{ cursor: "pointer" }}
+        pointerEvents={"all"}
+      >
         <rect
           x="0.5"
           y="14.5"
@@ -130,7 +142,7 @@ const Dice = ({ getQuote, randomRoll }) => {
         <circle className="diceCirc" cx="8.5" cy="34.5" r="2.5" fill="white" />
         <circle className="diceCirc" cx="20.5" cy="22.5" r="2.5" fill="white" /> */}
       </g>
-      <g className="die" onClick={getQuote}>
+      <g className="die" onClick={getQuote} style={{ cursor: "pointer" }}>
         <rect
           x="30.5402"
           y="-0.684685"
@@ -152,4 +164,4 @@ const Dice = ({ getQuote, randomRoll }) => {
   );
 };
 
-export default Dice;
+export default withStyles(styles)(Dice);
