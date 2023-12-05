@@ -7,12 +7,14 @@ const styles = {
     top: -70,
     padding: "100px 0 0 10%",
   },
+  svg: {},
 };
 
 const HeaderLogo = ({ classes }) => {
   return (
     <div>
       <svg
+        className={classes.svg}
         width="583"
         height="318"
         viewBox="-50 0 700 318"

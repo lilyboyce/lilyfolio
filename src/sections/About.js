@@ -13,12 +13,12 @@ const styles = {
     position: "fixed",
     right: 0,
     bottom: 0,
-    maxWidth: "60%",
+    maxWidth: "50%",
     maxHeight: "80%",
   },
   textBox: {
     position: "relative",
-    padding: "27% 30% 20px 10%",
+    padding: "27% 20% 20px 10%",
     fontFamily: "Gatwick",
     fontWeight: "bold",
     fontSize: "36px",
@@ -34,9 +34,10 @@ const styles = {
     composes: "$textBox",
     fontFamily: "FreightDisp Pro",
     fontWeight: 300,
-    padding: "5% 40% 150px 10%",
+    padding: "5% 58% 150px 10%",
     fontSize: "24px",
     lineHeight: 1.5,
+    textWrap: "balance",
   },
   logos: {
     maxWidth: "250px",
@@ -71,25 +72,22 @@ const AboutPage = ({ classes }) => {
 
         <div className={classes.textBox2}>
           <p>
-            Lily is a Senior Interactive Designer & Developer on Condé Nast’s
-            Data Story Lab, a cross-brand team that creates interactive digital
-            experiences for the publisher’s many magazines, including Vogue,
-            Pitchfork, Condé Nast Traveler, Architectural Digest, and
+            Lily is a digital designer with a love for data visualization,
+            smooth user interactions, and illustration. She was most recently a
+            Senior Interactive Designer & Developer on Condé Nast’s Data Story
+            Lab, a cross-brand team that creates interactive digital experiences
+            for the publisher’s many magazines, including Vogue, Pitchfork,
+            Condé Nast Traveler, Architectural Digest, GQ, WIRED, and
             Epicurious. She lives in Brooklyn, New York.
           </p>{" "}
           <p>
+            {" "}
             Lily has always been drawn to the space where art and science
             collide – as a kid she couldn’t decide whether to be an astronaut or
-            an artist. Like many people in the field, she fell into data
-            visualization sideways after dabbling in fine art, geography,
-            research writing, and graphic design.
-          </p>
-          <p>
-            {" "}
-            In any given week Lily is probably playing tennis, illustrating
-            letters, dreaming up big travel plans, naming her future cat, or
-            taking an excessive amount of photos to stash in folders rarely to
-            be seen again.
+            an artist. In any given week Lily is probably playing tennis,
+            illustrating letters, dreaming up big travel plans, or taking an
+            excessive amount of photos to stash in folders rarely to be seen
+            again.
           </p>
         </div>
         <div className={classes.logos}>

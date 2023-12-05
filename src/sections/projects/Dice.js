@@ -5,13 +5,16 @@ const styles = {
   diceRect: {
     cursor: "pointer",
   },
+  die: {
+    cursor: "pointer",
+  },
 };
 
 const Dice = ({ getQuote, randomRoll }) => {
   const randomDie = randomRoll;
   const circles = () => {
     return randomDie === 0 ? (
-      <circle className="diceCirc" cx="14.5" cy="14.5" r="2.5" fill="white" />
+      <circle className="diceCirc" cx="14.5" cy="28.5" r="2.5" fill="white" />
     ) : randomDie === 1 ? (
       <>
         <circle className="diceCirc" cx="20.5" cy="33.5" r="2.5" fill="white" />
@@ -73,43 +76,48 @@ const Dice = ({ getQuote, randomRoll }) => {
         <circle
           className="diceCirc"
           cx="20.5"
-          cy="14.5"
+          cy="28.5"
           r="2.5"
           fill="#A7CCAD"
         />
         <circle
           className="diceCirc"
           cx="8.5"
-          cy="14.5"
+          cy="28.5"
           r="2.5"
           fill="#A7CCAD"
         />
         <circle
           className="diceCirc"
           cx="8.5"
-          cy="20.5"
-          r="2.5"
-          fill="#A7CCAD"
-        />
-        <circle className="diceCirc" cx="8.5" cy="8.5" r="2.5" fill="#A7CCAD" />
-        <circle
-          className="diceCirc"
-          cx="20.5"
-          cy="8.5"
+          cy="34.5"
           r="2.5"
           fill="#A7CCAD"
         />
         <circle
           className="diceCirc"
+          cx="8.5"
+          cy="22.5"
+          r="2.5"
+          fill="#A7CCAD"
+        />
+        <circle
+          className="diceCirc"
           cx="20.5"
-          cy="20.5"
+          cy="22.5"
+          r="2.5"
+          fill="#A7CCAD"
+        />
+        <circle
+          className="diceCirc"
+          cx="20.5"
+          cy="34.5"
           r="2.5"
           fill="#A7CCAD"
         />
       </>
     ) : null;
   };
-  console.log(circles());
 
   return (
     <svg
@@ -142,23 +150,29 @@ const Dice = ({ getQuote, randomRoll }) => {
         <circle className="diceCirc" cx="8.5" cy="34.5" r="2.5" fill="white" />
         <circle className="diceCirc" cx="20.5" cy="22.5" r="2.5" fill="white" /> */}
       </g>
-      <g className="die" onClick={getQuote} style={{ cursor: "pointer" }}>
+      <g
+        className="die"
+        onClick={getQuote}
+        style={{ cursor: "pointer" }}
+        pointerEvents={"all"}
+      >
         <rect
           x="30.5402"
           y="-0.684685"
           width="28"
           height="28"
           rx="3.5"
-          transform="rotate(30.5327 30.5402 -0.684685)"
+          // transform="rotate(30.5327 30.5402 -0.684685)"
           fill="black"
           stroke="white"
           className="diceRect"
           id="diceRect"
         />
-        <circle className="diceCirc" cx="27.5" cy="20.5" r="2.5" fill="white" />
+        {circles()}
+        {/* <circle className="diceCirc" cx="27.5" cy="20.5" r="2.5" fill="white" />
         <circle className="diceCirc" cx="37.5" cy="26.5" r="2.5" fill="white" />
         <circle className="diceCirc" cx="43.5" cy="16.5" r="2.5" fill="white" />
-        <circle className="diceCirc" cx="33.5" cy="10.5" r="2.5" fill="white" />
+        <circle className="diceCirc" cx="33.5" cy="10.5" r="2.5" fill="white" /> */}
       </g>
     </svg>
   );

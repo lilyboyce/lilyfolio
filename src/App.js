@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Quotes from "./sections/projects/Quotes";
 
 const styles = {
-  app: { height: "100%", backgroundColor: "#262626" },
+  app: { height: "100%", backgroundColor: "black" },
   header: {
     width: "100%",
     position: "fixed",

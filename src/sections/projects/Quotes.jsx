@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import withStyles from "react-jss";
 import Dice from "./Dice.js";
-import { bgGradient } from "../../assets/index.js";
+// import { bgGradient } from "../../assets/index.js";
 import quotes from "./quotesData";
 import gsap from "gsap";
 // import * as Scrollytelling from "@bsmnt/scrollytelling";
@@ -68,8 +68,6 @@ const Quotes = ({ classes }) => {
     setColorPair(gsap.utils.random(0, colors.length - 1, 1));
   };
 
-  console.log(randomRoll);
-
   const el = useRef();
   const q = gsap.utils.selector(el);
 
@@ -121,12 +119,7 @@ const Quotes = ({ classes }) => {
       gsap.fromTo(
         "#container",
         { background: colors[colorPair].bg },
-        {
-          background: () => {
-            return colors[colorPair].bg;
-          },
-          duration: 2,
-        }
+        { background: colors[colorPair].bg, duration: 2 }
       );
       gsap.fromTo(
         "#diceRect",
@@ -141,12 +134,16 @@ const Quotes = ({ classes }) => {
           duration: 2,
         }
       );
-      gsap.to(".diceCirc", {
-        fill: () => {
-          return colors[colorPair].bg;
-        },
-        duration: 2,
-      });
+      gsap.fromTo(
+        ".diceCirc",
+        { fill: colors[colorPair].bg },
+        {
+          fill: () => {
+            return colors[colorPair].bg;
+          },
+          duration: 2,
+        }
+      );
     }, el);
 
     return () => ctx.revert();

@@ -9,7 +9,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    background: "#262626",
+    // background: "#262626",
     height: "100%",
   },
   imgContainer: {

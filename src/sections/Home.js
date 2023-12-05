@@ -1,13 +1,18 @@
 import React, { useEffect, useRef } from "react";
 import withStyles from "react-jss";
 import * as logos from "../assets/logos";
-import WorkSection from "../components/WorkSection";
+// import WorkSection from "../components/WorkSection";
 import ArtSection from "../components/ArtSection";
 import HeaderLogo from "../components/Header/HeaderLogo";
 import colors from "../styles/colors";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import WorkImages from "../components/WorkImages";
+
+//to do:
+// update logo svg's (currently using images)
+// update browser window images (use a browser frame and insert screenshots? or just create in illustrator)
+// change home button font
 
 const styles = {
   container: {
@@ -20,12 +25,13 @@ const styles = {
     position: "sticky",
     top: -70,
     padding: "100px 0 0 10%",
+    mixBlendMode: "difference",
   },
   textBox: {
     position: "relative",
     margin: "380px 10% 130px 10%",
-    fontFamily: "sans-serif",
-    fontSize: "24px",
+    fontFamily: "FreightDisp Pro",
+    fontSize: "36px",
     textWrap: "balance",
     "@media only screen and (max-width: 800px)": {
       fontSize: "24px",
@@ -40,6 +46,9 @@ const styles = {
     lineHeight: 1.5,
     // opacity: 0.5,
     textAlign: "center",
+  },
+  textSpan: {
+    fontWeight: 800,
   },
   logos: {
     maxWidth: "250px",
@@ -98,17 +107,10 @@ const Home = ({ classes }) => {
       scale: 0.5,
       yoyo: true,
       scrollTrigger: {
-        markers: false,
+        markers: true,
         trigger: ".container",
         start: "50px",
         end: "+=450",
-        scrub: true,
-      },
-    });
-    gsap.to(q(".projectBrowser"), {
-      rotate: 15,
-      scrollTrigger: {
-        trigger: ".projectBrowser",
         scrub: true,
       },
     });
@@ -119,11 +121,11 @@ const Home = ({ classes }) => {
       <div className={classes.wordmark}>
         <HeaderLogo />
       </div>
-
       <div className={classes.textBox}>
         <div className={classes.text}>
-          I’m a designer and developer specializing in interactive data-rich
-          experiences.
+          I’m a <span className={classes.textSpan}>designer</span> and{" "}
+          <span className={classes.textSpan}>developer</span> specializing in
+          interactive data-rich experiences.
         </div>
       </div>
       <WorkImages />

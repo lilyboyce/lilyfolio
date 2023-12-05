@@ -97,7 +97,8 @@ const styles = {
     fontFamily: "Gatwick",
     fontSize: 36,
     left: 75,
-    color: "white",
+    color: "black",
+    transition: "opacity 1s, scale .5s",
   },
   homeTextDisplayNone: {
     composes: "$workText",
