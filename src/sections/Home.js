@@ -107,7 +107,7 @@ const Home = ({ classes }) => {
       scale: 0.5,
       yoyo: true,
       scrollTrigger: {
-        markers: true,
+        markers: false,
         trigger: ".container",
         start: "50px",
         end: "+=450",
@@ -125,7 +125,7 @@ const Home = ({ classes }) => {
         <div className={classes.text}>
           I’m a <span className={classes.textSpan}>designer</span> and{" "}
           <span className={classes.textSpan}>developer</span> specializing in
-          interactive data-rich experiences.
+          interactive digital experiences.
         </div>
       </div>
       <WorkImages />
