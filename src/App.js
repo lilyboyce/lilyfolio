@@ -21,7 +21,7 @@ const styles = {
 
 const App = ({ classes }) => {
   return (
-    <HashRouter>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <div className={classes.app}>
         <div className={classes.header}>
           <HeaderMenu />

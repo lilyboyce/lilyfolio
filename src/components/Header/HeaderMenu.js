@@ -132,7 +132,7 @@ const HeaderMenu = ({ classes }) => {
   return (
     <div className={classes.headerContainer}>
       <Link
-        to="/"
+        to=""
         onMouseEnter={() => setShowHomeMenu(true)}
         onMouseLeave={() => setShowHomeMenu(false)}
         onClick={() => setShowHomeMenu(false)}
