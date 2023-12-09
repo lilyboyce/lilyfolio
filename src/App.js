@@ -5,7 +5,7 @@ import Work from "./sections/Work";
 import "./assets/font/stylesheet.css";
 import HeaderMenu from "./components/Header/HeaderMenu";
 import withStyles from "react-jss";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as HashRouter, Routes, Route } from "react-router-dom";
 import Quotes from "./sections/projects/Quotes";
 
 const styles = {
@@ -21,19 +21,19 @@ const styles = {
 
 const App = ({ classes }) => {
   return (
-    <Router>
+    <HashRouter>
       <div className={classes.app}>
         <div className={classes.header}>
           <HeaderMenu />
         </div>
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/work" element={<Work />} />
           <Route path="/quotes" element={<Quotes />} />
         </Routes>
       </div>
-    </Router>
+    </HashRouter>
   );
 };
 
