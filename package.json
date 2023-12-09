@@ -2,6 +2,7 @@
   "name": "lilyfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://lilyboyce.github.io/lilyfolio/",
   "dependencies": {
     "@bsmnt/scrollytelling": "^0.2.8",
     "@testing-library/jest-dom": "^5.17.0",

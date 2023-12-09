@@ -65,7 +65,7 @@ const WorkImages = ({ classes }) => {
       scrollTrigger: {
         trigger: "#container",
         start: "-500px",
-        end: "-100px",
+        end: "-200px",
         markers: true,
         scrub: true,
       },
