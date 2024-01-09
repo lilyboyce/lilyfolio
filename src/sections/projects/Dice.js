@@ -10,113 +10,217 @@ const styles = {
   },
 };
 
-const Dice = ({ getQuote, randomRoll }) => {
-  const randomDie = randomRoll;
-  const circles = () => {
-    return randomDie === 0 ? (
-      <circle className="diceCirc" cx="14.5" cy="28.5" r="2.5" fill="white" />
-    ) : randomDie === 1 ? (
-      <>
-        <circle className="diceCirc" cx="20.5" cy="33.5" r="2.5" fill="white" />
-        <circle className="diceCirc" cx="10.5" cy="23.5" r="2.5" fill="white" />
-      </>
-    ) : randomDie === 2 ? (
-      <>
-        <circle className="diceCirc" cx="14.5" cy="28.5" r="2.5" fill="white" />
-        <circle className="diceCirc" cx="8.5" cy="34.5" r="2.5" fill="white" />
-        <circle className="diceCirc" cx="20.5" cy="22.5" r="2.5" fill="white" />
-      </>
-    ) : randomDie === 3 ? (
-      <>
-        <circle className="diceCirc" cx="27.5" cy="20.5" r="2.5" fill="white" />
-        <circle className="diceCirc" cx="37.5" cy="26.5" r="2.5" fill="white" />
-        <circle className="diceCirc" cx="43.5" cy="16.5" r="2.5" fill="white" />
-        <circle className="diceCirc" cx="33.5" cy="10.5" r="2.5" fill="white" />
-      </>
-    ) : randomDie === 4 ? (
-      <>
-        <circle
-          className="diceCirc"
-          cx="14.5"
-          cy="28.5"
-          r="2.5"
-          fill="#A7CCAD"
-        />
-        <circle
-          className="diceCirc"
-          cx="8.5"
-          cy="34.5"
-          r="2.5"
-          fill="#A7CCAD"
-        />
-        <circle
-          className="diceCirc"
-          cx="8.5"
-          cy="22.5"
-          r="2.5"
-          fill="#A7CCAD"
-        />
-        <circle
-          className="diceCirc"
-          cx="20.5"
-          cy="22.5"
-          r="2.5"
-          fill="#A7CCAD"
-        />
-        <circle
-          className="diceCirc"
-          cx="20.5"
-          cy="34.5"
-          r="2.5"
-          fill="#A7CCAD"
-        />
-      </>
-    ) : randomDie === 5 ? (
+const Dice = ({ getQuote, randomRoll, randomRoll2 }) => {
+  let randomDie = randomRoll;
+  let randomDie2 = randomRoll2;
+
+  let position = "";
+
+  const circles = (position) => {
+    const cx1 = 8.5;
+    const cx2 = 14.5;
+    const cx3 = 20.5;
+    const cy1 = 22.5;
+    const cy2 = 28.5;
+    const cy3 = 34.5;
+    const die1 = (
+      <circle
+        className="diceCirc"
+        cx={position === "left" ? cx2 : cx2 + 30}
+        cy={position === "left" ? cy2 : cy2 - 15}
+        r="2.5"
+        fill="white"
+      />
+    );
+    const die2 = (
       <>
         <circle
           className="diceCirc"
-          cx="20.5"
-          cy="28.5"
+          cx={position === "left" ? cx1 : cx1 + 30}
+          cy={position === "left" ? cy3 : cy3 - 15}
           r="2.5"
-          fill="#A7CCAD"
+          fill="white"
         />
         <circle
           className="diceCirc"
-          cx="8.5"
-          cy="28.5"
+          cx={position === "left" ? cx3 : cx3 + 30}
+          cy={position === "left" ? cy1 : cy1 - 15}
           r="2.5"
-          fill="#A7CCAD"
-        />
-        <circle
-          className="diceCirc"
-          cx="8.5"
-          cy="34.5"
-          r="2.5"
-          fill="#A7CCAD"
-        />
-        <circle
-          className="diceCirc"
-          cx="8.5"
-          cy="22.5"
-          r="2.5"
-          fill="#A7CCAD"
-        />
-        <circle
-          className="diceCirc"
-          cx="20.5"
-          cy="22.5"
-          r="2.5"
-          fill="#A7CCAD"
-        />
-        <circle
-          className="diceCirc"
-          cx="20.5"
-          cy="34.5"
-          r="2.5"
-          fill="#A7CCAD"
+          fill="white"
         />
       </>
-    ) : null;
+    );
+    const die3 = (
+      <>
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx1 : cx1 + 30}
+          cy={position === "left" ? cy3 : cy3 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx2 : cx2 + 30}
+          cy={position === "left" ? cy2 : cy2 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx3 : cx3 + 30}
+          cy={position === "left" ? cy1 : cy1 - 15}
+          r="2.5"
+          fill="white"
+        />
+      </>
+    );
+    const die4 = (
+      <>
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx1 : cx1 + 30}
+          cy={position === "left" ? cy3 : cy3 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx1 : cx1 + 30}
+          cy={position === "left" ? cy1 : cy1 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx3 : cx3 + 30}
+          cy={position === "left" ? cy3 : cy3 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx3 : cx3 + 30}
+          cy={position === "left" ? cy1 : cy1 - 15}
+          r="2.5"
+          fill="white"
+        />
+      </>
+    );
+    const die5 = (
+      <>
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx1 : cx1 + 30}
+          cy={position === "left" ? cy3 : cy3 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx1 : cx1 + 30}
+          cy={position === "left" ? cy1 : cy1 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx3 : cx3 + 30}
+          cy={position === "left" ? cy3 : cy3 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx3 : cx3 + 30}
+          cy={position === "left" ? cy1 : cy1 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx2 : cx2 + 30}
+          cy={position === "left" ? cy2 : cy2 - 15}
+          r="2.5"
+          fill="white"
+        />
+      </>
+    );
+    const die6 = (
+      <>
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx1 : cx1 + 30}
+          cy={position === "left" ? cy3 : cy3 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx1 : cx1 + 30}
+          cy={position === "left" ? cy1 : cy1 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx3 : cx3 + 30}
+          cy={position === "left" ? cy3 : cy3 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx3 : cx3 + 30}
+          cy={position === "left" ? cy1 : cy1 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx1 : cx1 + 30}
+          cy={position === "left" ? cy2 : cy2 - 15}
+          r="2.5"
+          fill="white"
+        />
+        <circle
+          className="diceCirc"
+          cx={position === "left" ? cx3 : cx3 + 30}
+          cy={position === "left" ? cy2 : cy2 - 15}
+          r="2.5"
+          fill="white"
+        />
+      </>
+    );
+
+    if (position === "left")
+      return randomDie === 0
+        ? die1
+        : randomDie === 1
+        ? die2
+        : randomDie === 2
+        ? die3
+        : randomDie === 3
+        ? die4
+        : randomDie === 4
+        ? die5
+        : randomDie === 5
+        ? die6
+        : null;
+    else if (position === "right")
+      return randomDie2 === 0
+        ? die1
+        : randomDie2 === 1
+        ? die2
+        : randomDie2 === 2
+        ? die3
+        : randomDie2 === 3
+        ? die4
+        : randomDie2 === 4
+        ? die5
+        : randomDie2 === 5
+        ? die6
+        : null;
   };
 
   return (
@@ -145,10 +249,7 @@ const Dice = ({ getQuote, randomRoll }) => {
           className="diceRect"
           id="diceRect"
         />
-        {circles()}
-        {/* <circle className="diceCirc" cx="14.5" cy="28.5" r="2.5" fill="white" />
-        <circle className="diceCirc" cx="8.5" cy="34.5" r="2.5" fill="white" />
-        <circle className="diceCirc" cx="20.5" cy="22.5" r="2.5" fill="white" /> */}
+        {circles((position = "left"))}
       </g>
       <g
         className="die"
@@ -157,22 +258,17 @@ const Dice = ({ getQuote, randomRoll }) => {
         pointerEvents={"all"}
       >
         <rect
-          x="30.5402"
-          y="-0.684685"
+          x="30.5"
+          y="-0.5"
           width="28"
           height="28"
           rx="3.5"
-          // transform="rotate(30.5327 30.5402 -0.684685)"
           fill="black"
           stroke="white"
           className="diceRect"
           id="diceRect"
         />
-        {circles()}
-        {/* <circle className="diceCirc" cx="27.5" cy="20.5" r="2.5" fill="white" />
-        <circle className="diceCirc" cx="37.5" cy="26.5" r="2.5" fill="white" />
-        <circle className="diceCirc" cx="43.5" cy="16.5" r="2.5" fill="white" />
-        <circle className="diceCirc" cx="33.5" cy="10.5" r="2.5" fill="white" /> */}
+        {circles((position = "right"))}
       </g>
     </svg>
   );

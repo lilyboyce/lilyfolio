@@ -26,10 +26,11 @@ const styles = {
     top: -70,
     padding: "100px 0 0 10%",
     mixBlendMode: "difference",
+    marginBottom: "30vh",
   },
   textBox: {
     position: "relative",
-    margin: "380px 10% 130px 10%",
+    margin: "10% 10% 130px 10%",
     fontFamily: "FreightDisp Pro",
     fontSize: "36px",
     textWrap: "balance",

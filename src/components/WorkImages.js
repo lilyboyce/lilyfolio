@@ -12,25 +12,31 @@ const styles = {
     margin: "0 auto",
     width: "100%",
     height: "400px",
+    margin: "0 auto 30vh auto",
   },
-  browserWindow1: {
+  browserWindow: {
     position: "absolute",
     minWidth: "30%",
     maxWidth: "40%",
     transition: "width 1s",
     marginLeft: "10%",
-    "&:hover": {
-      zIndex: 99,
-    },
+    // "&:hover": {
+    //   zIndex: 99,
+    // },
   },
   image: {
     width: "100%",
+  },
+  dragText: {
+    color: "#5d5d5d",
+    fontSize: "12px",
+    margin: "0 auto",
   },
 };
 
 const WorkImages = ({ classes }) => {
   const el = useRef();
-  const q = gsap.utils.selector(el);
+  // const q = gsap.utils.selector(el);
   gsap.registerPlugin(Draggable);
 
   useEffect(() => {
@@ -40,6 +46,7 @@ const WorkImages = ({ classes }) => {
   }, []);
 
   //to do: add matchMedia for mobile view
+  // to do: do math to make sure the x positions have the entire group centered based on browser width
   useEffect(() => {
     gsap.set("#browserWindow", {
       opacity: 0,
@@ -53,20 +60,14 @@ const WorkImages = ({ classes }) => {
     gsap.to("#browserWindow", {
       opacity: 1,
       duration: 0.1,
-      stagger: 0.3,
-      x: (index) => {
-        return (index + 1) * 50;
-      },
-      y: (index) => {
-        return index * 30;
-      },
+      stagger: 0.5,
       immediateRender: false, // otherwise scrollTrigger will force the render right away and the starting values that get locked in would be affected by the from() above
       yoyo: true,
       scrollTrigger: {
         trigger: "#container",
         start: "-500px",
         end: "-200px",
-        markers: true,
+        markers: false,
         scrub: true,
       },
     });
@@ -82,36 +83,34 @@ const WorkImages = ({ classes }) => {
     { id: 5, src: browsers.browser5 },
     { id: 6, src: browsers.browser6 },
     { id: 7, src: browsers.browser7 },
+    { id: 8, src: browsers.browser8 },
   ];
 
   return (
     <>
       <div className={classes.container} ref={el} id="container">
-        {/* <BrowserImage /> */}
         {windows.map((img) => {
-          // console.log(`browserWindow${[img.id]}`);
           return (
             <>
               <div
                 id="browserWindow"
-                className={classes.browserWindow1}
+                className={classes.browserWindow}
                 // ref={el}
               >
-                {/* <Link to="/work"> */}
                 <img
                   id="image"
                   className={classes.image}
                   src={img.src}
                   alt={
-                    "a modern minimal browser window that shows a screenshot of selected projects. they stack on each other loading down the page, and are draggable."
+                    "a modern minimal browser window that shows a screenshot of selected projects. the browser windows stack on each other as you scroll down the page, and are draggable."
                   }
                 />
-                {/* </Link> */}
               </div>
             </>
           );
         })}
       </div>
+      <div className={classes.dragText}>DRAG THE WINDOWS :)</div>
     </>
   );
 };

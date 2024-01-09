@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import withStyles from "react-jss";
 import Dice from "./Dice.js";
-// import { bgGradient } from "../../assets/index.js";
 import quotes from "./quotesData";
 import gsap from "gsap";
-// import * as Scrollytelling from "@bsmnt/scrollytelling";
 
 const styles = {
   container: {
@@ -35,7 +33,7 @@ const styles = {
     margin: 0,
   },
   diceContainer: {
-    marginTop: "50px",
+    marginTop: "5rem",
   },
   text: {
     opacity: 100,
@@ -58,6 +56,7 @@ const Quotes = ({ classes }) => {
   const [displayQuote, setDisplayQuote] = useState(0);
   const [colorPair, setColorPair] = useState(0);
   const [randomRoll, setRandomRoll] = useState(2);
+  const [randomRoll2, setRandomRoll2] = useState(4);
   const getQuote = () => {
     if (displayQuote < len - 1) {
       setDisplayQuote((a) => a + 1);
@@ -65,15 +64,27 @@ const Quotes = ({ classes }) => {
       setDisplayQuote(0);
     }
     setRandomRoll(gsap.utils.random(0, 5, 1));
+    setRandomRoll2(gsap.utils.random(0, 5, 1));
     setColorPair(gsap.utils.random(0, colors.length - 1, 1));
   };
 
   const el = useRef();
   const q = gsap.utils.selector(el);
 
-  // to do: move dice on hover
+  // move dice on hover
   const HoverMotion = () => {
-    console.log("we're doing something");
+    // gsap.to(q(".die"), {
+    //   y: (index) => {
+    //     return gsap.utils.random((index + 2) * -1.5, (index + 2) * 1.5);
+    //   },
+    //   x: (index) => {
+    //     return gsap.utils.random((index + 1) * -2, (index + 2) * 2);
+    //   },
+    //   rotate: (index) => {
+    //     return gsap.utils.random((index + 2) * -10, (index + 5) * 6);
+    //   },
+    //   ease: "inout",
+    // });
   };
 
   //dynamic gradient bg??
@@ -91,7 +102,7 @@ const Quotes = ({ classes }) => {
   }
 
   useEffect(() => {
-    //todo: trigger this on hover
+    //dice positioning
     gsap.to(q(".die"), {
       y: (index) => {
         return gsap.utils.random((index + 4) * -7, (index + 4) * 7);
@@ -104,50 +115,58 @@ const Quotes = ({ classes }) => {
       },
       ease: "inout",
     });
+    // color changes
+    gsap.to("#text", {
+      color: colors[colorPair].fg,
+      duration: 1,
+    });
+    gsap.to("#container", { background: colors[colorPair].bg, duration: 1 });
+    gsap.to("#diceRect", {
+      fill: colors[colorPair].fg,
+      stroke: colors[colorPair].bg,
+      duration: 1,
+    });
+    gsap.to(".diceCirc", {
+      fill: colors[colorPair].bg,
+      duration: 1,
+    });
   }, [q]);
 
   //color changes
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      // all your animations go in here
-      gsap.to("#text", {
-        color: () => {
-          return colors[colorPair].fg;
-        },
-        duration: 2,
-      });
-      gsap.fromTo(
-        "#container",
-        { background: colors[colorPair].bg },
-        { background: colors[colorPair].bg, duration: 2 }
-      );
-      gsap.fromTo(
-        "#diceRect",
-        { fill: colors[colorPair].fg, stroke: colors[colorPair].bg },
-        {
-          fill: () => {
-            return colors[colorPair].fg;
-          },
-          stroke: () => {
-            return colors[colorPair].bg;
-          },
-          duration: 2,
-        }
-      );
-      gsap.fromTo(
-        ".diceCirc",
-        { fill: colors[colorPair].bg },
-        {
-          fill: () => {
-            return colors[colorPair].bg;
-          },
-          duration: 2,
-        }
-      );
-    }, el);
+  // useLayoutEffect(() => {
+  //   let ctx = gsap.context(() => {
+  //     // all your animations go in here
+  //     // COLOR CHANGES
+  //     gsap.to("#text", {
+  //       color: colors[colorPair].fg,
+  //       duration: 2,
+  //     });
+  //     gsap.fromTo(
+  //       "#container",
+  //       { background: colors[colorPair].bg },
+  //       { background: colors[colorPair].bg, duration: 2 }
+  //     );
+  //     gsap.fromTo(
+  //       "#diceRect",
+  //       { fill: colors[colorPair].fg, stroke: colors[colorPair].bg },
+  //       {
+  //         fill: colors[colorPair].fg,
+  //         stroke: colors[colorPair].bg,
+  //         duration: 2,
+  //       }
+  //     );
+  //     gsap.fromTo(
+  //       ".diceCirc",
+  //       { fill: colors[colorPair].bg },
+  //       {
+  //         fill: colors[colorPair].bg,
+  //         duration: 2,
+  //       }
+  //     );
+  //   }, el);
 
-    return () => ctx.revert();
-  }, [q]);
+  //   return () => ctx.revert();
+  // }, [q]);
 
   return (
     <div ref={el}>
@@ -162,7 +181,11 @@ const Quotes = ({ classes }) => {
           {quotes[displayQuote].title}
         </p>
         <div onMouseEnter={HoverMotion} className={classes.diceContainer}>
-          <Dice getQuote={getQuote} randomRoll={randomRoll} />
+          <Dice
+            getQuote={getQuote}
+            randomRoll={randomRoll}
+            randomRoll2={randomRoll2}
+          />
         </div>
       </div>
     </div>

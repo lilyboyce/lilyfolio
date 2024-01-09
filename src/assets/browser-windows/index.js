@@ -1,7 +1,8 @@
-export { default as browser1 } from "./wired-filters.png";
-export { default as browser2 } from "./ad100.png";
-export { default as browser3 } from "./p4kpolls.png";
-export { default as browser4 } from "./vogue-trends.png";
-export { default as browser5 } from "./epicurious.png";
-export { default as browser6 } from "./reviews.png";
-export { default as browser7 } from "./karl.png";
+export { default as browser1 } from "./wired-desktop.png";
+export { default as browser2 } from "./ad100-desktop.png";
+export { default as browser3 } from "./p4kpolls-desktop.png";
+export { default as browser4 } from "./cntmap-desktop.png";
+export { default as browser5 } from "./vfballot-desktop.png";
+export { default as browser6 } from "./epi-desktop.png";
+export { default as browser7 } from "./p4kreviews-desktop.png";
+export { default as browser8 } from "./karl-desktop.png";
