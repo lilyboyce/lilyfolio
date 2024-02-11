@@ -7,6 +7,7 @@ import HeaderMenu from "./components/Header/HeaderMenu";
 import withStyles from "react-jss";
 import { BrowserRouter as HashRouter, Routes, Route } from "react-router-dom";
 import Quotes from "./sections/projects/Quotes";
+import Footer from "./components/Footer";
 
 const styles = {
   app: { height: "100%", backgroundColor: "black" },
@@ -16,6 +17,16 @@ const styles = {
     top: 0,
     zIndex: 100,
     mixBlendMode: "difference",
+  },
+  footer: {
+    width: "100%",
+    position: "fixed",
+    zIndex: 100,
+    mixBlendMode: "difference !important",
+    bottom: 0,
+    // opacity: 0.6,
+    fontSize: "10px",
+    textAlign: "center",
   },
 };
 
@@ -32,6 +43,9 @@ const App = ({ classes }) => {
           <Route path="/work" element={<Work />} />
           <Route path="/quotes" element={<Quotes />} />
         </Routes>
+        <div className={classes.footer}>
+          <Footer />
+        </div>
       </div>
     </HashRouter>
   );

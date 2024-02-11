@@ -2,8 +2,9 @@ import React, { useRef, useEffect } from "react";
 import withStyles from "react-jss";
 import gsap from "gsap";
 import { Draggable } from "gsap/Draggable";
-import * as images from "../assets/project-images";
+// import * as images from "../assets/project-images";
 import * as browsers from "../assets/browser-windows";
+import BGShape from "../sections/projects/BGShape";
 // import { Link } from "react-router-dom";
 
 const styles = {
@@ -20,17 +21,32 @@ const styles = {
     maxWidth: "40%",
     transition: "width 1s",
     marginLeft: "10%",
-    // "&:hover": {
-    //   zIndex: 99,
-    // },
+    zIndex: 1,
+    "&:hover": {
+      zIndex: 99,
+    },
   },
   image: {
     width: "100%",
   },
   dragText: {
     color: "#5d5d5d",
-    fontSize: "12px",
+    fontSize: "9px",
+    fontFamily: "Gatwick",
+    fontWeight: "bold",
+    textAlign: "center",
     margin: "0 auto",
+    // background: "white",
+    // width: "100px",
+    // height: "100px",
+    // borderRadius: 50,
+    position: "absolute",
+    left: "10%",
+    top: "90%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
   },
 };
 
@@ -73,7 +89,6 @@ const WorkImages = ({ classes }) => {
     });
   }, []);
 
-  //todo: get better project images :| they're blurry!
   //dynamically insert the image into the browser frame in order to use gifs
   const windows = [
     { id: 1, src: browsers.browser1 },
@@ -102,15 +117,19 @@ const WorkImages = ({ classes }) => {
                   className={classes.image}
                   src={img.src}
                   alt={
-                    "a modern minimal browser window that shows a screenshot of selected projects. the browser windows stack on each other as you scroll down the page, and are draggable."
+                    "a minimal browser window that shows a screenshot of selected projects. the browser windows stack on each other as you scroll down the page, and are draggable."
                   }
                 />
               </div>
             </>
           );
         })}
+        <div className={classes.dragText}>
+          {/* <BGShape color="#FF63CA" radius="100" /> */}
+          <span>DRAG THE </span>
+          <span>WINDOWS :)</span>
+        </div>
       </div>
-      <div className={classes.dragText}>DRAG THE WINDOWS :)</div>
     </>
   );
 };

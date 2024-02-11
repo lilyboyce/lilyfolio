@@ -33,7 +33,6 @@ const Work = ({ classes }) => {
 
   return (
     <div className={classes.container}>
-      <h1>Condé Nast</h1>
       <div className={classes.imageGrid}>
         {thumbnails.map((item) => {
           return (

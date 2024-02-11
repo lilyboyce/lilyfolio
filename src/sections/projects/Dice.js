@@ -245,7 +245,7 @@ const Dice = ({ getQuote, randomRoll, randomRoll2 }) => {
           height="28"
           rx="3.5"
           fill="black"
-          stroke="white"
+          stroke="transparent"
           className="diceRect"
           id="diceRect"
         />
@@ -264,7 +264,7 @@ const Dice = ({ getQuote, randomRoll, randomRoll2 }) => {
           height="28"
           rx="3.5"
           fill="black"
-          stroke="white"
+          stroke="transparent"
           className="diceRect"
           id="diceRect"
         />

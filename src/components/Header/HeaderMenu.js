@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import withStyles from "react-jss";
 import { Link } from "react-router-dom";
+import BGShape from "../../sections/projects/BGShape";
 
 const styles = {
   menuButtons: {
@@ -138,6 +139,7 @@ const HeaderMenu = ({ classes }) => {
         onClick={() => setShowHomeMenu(false)}
       >
         <div className={classes.circle}></div>
+        {/* <BGShape color={"hsl(337, 92%, 69%)"} /> */}
         <div
           className={
             showHomeMenu ? classes.homeText : classes.homeTextDisplayNone
