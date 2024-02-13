@@ -56,6 +56,8 @@ const Quotes = ({ classes }) => {
     { bg: "#FFE3B9", fg: "#5200FF" },
     { bg: "#FFB038", fg: "#A200A6" },
     { bg: "#A7CCAD", fg: "#5200FF" },
+    { bg: "#DBAEFF", fg: "#5200FF" },
+    { bg: "#C8CA59", fg: "#08291D" },
   ];
 
   // display a new quote on click, cycle through based on array length
@@ -83,7 +85,7 @@ const Quotes = ({ classes }) => {
     setRandomRoll2(gsap.utils.random(0, 5, 1));
     setColorPair(gsap.utils.random(0, colors.length - 1, 1));
     setBgShapePos([
-      gsap.utils.random(-500, 500, 1),
+      gsap.utils.random(-500, 1500, 1),
       gsap.utils.random(-500, 500, 1),
     ]);
   });
@@ -165,7 +167,7 @@ const Quotes = ({ classes }) => {
           />
         </div>
         <div className={classes.bgShape}>
-          <BGShape color={"hsla(337, 92%, 69%, 80%)"} radius="1250" />
+          <BGShape color={"hsla(0, 0%, 100%, 40%)"} radius="1250" />
         </div>
       </div>
     </div>
