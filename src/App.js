@@ -5,7 +5,7 @@ import Work from "./sections/Work";
 import "./assets/font/stylesheet.css";
 import HeaderMenu from "./components/Header/HeaderMenu";
 import withStyles from "react-jss";
-import { BrowserRouter as HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Quotes from "./sections/projects/Quotes";
 import Footer from "./components/Footer";
 
@@ -32,22 +32,22 @@ const styles = {
 
 const App = ({ classes }) => {
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
-      <div className={classes.app}>
-        <div className={classes.header}>
-          <HeaderMenu />
-        </div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/work" element={<Work />} />
-          <Route path="/quotes" element={<Quotes />} />
-        </Routes>
-        <div className={classes.footer}>
-          <Footer />
-        </div>
+    // <Router basename={process.env.PUBLIC_URL}>
+    <div className={classes.app}>
+      <div className={classes.header}>
+        <HeaderMenu />
       </div>
-    </HashRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/work" element={<Work />} />
+        <Route path="/quotes" element={<Quotes />} />
+      </Routes>
+      <div className={classes.footer}>
+        <Footer />
+      </div>
+    </div>
+    // </Router>
   );
 };
 
